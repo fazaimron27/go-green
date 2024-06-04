@@ -1,0 +1,39 @@
+name: Go Green Now 🌳
+
+on:
+  workflow_dispatch:
+
+jobs:
+  go-green-now:
+    runs-on: ubuntu-latest
+
+    container:
+      image: node:20
+
+    env:
+      LIMIT: 20
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Git configuration
+        run: |
+          git config --global user.name 'fazaimron27'
+          git config --global user.email 'cincaumyself@gmail.com'
+          git config --global --add safe.directory /__w/go-green/go-green
+
+      - name: Loop and commit
+        run: |
+          for i in $(seq $LIMIT); do
+            cat > LAST_UPDATED
+            d=$i+`date '+%Y-%m-%dT%H:%M:%SZ'`
+            echo $d > LAST_UPDATED
+            git add LAST_UPDATED
+
+            commit_message="BOT: DingDong 🔔 has done reforesting 🌳"
+            git commit -m "$commit_message"
+          done
+
+      - name: Push changes
+        run: git push origin main
