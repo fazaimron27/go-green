@@ -5,18 +5,15 @@ on:
     - cron: "0 17,23,5,11 * * *"
 
 jobs:
-  go-green-now:
+  go-green-schedule:
     runs-on: ubuntu-latest
 
-    container:
-      image: node:20
-
     env:
-      LIMIT: 20
+      LIMIT: 5
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Set up Git configuration
         run: |
