@@ -7,15 +7,12 @@ jobs:
   go-green-now:
     runs-on: ubuntu-latest
 
-    container:
-      image: node:20
-
     env:
       LIMIT: 20
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Set up Git configuration
         run: |
