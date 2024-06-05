@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      LIMIT: 5
+      LIMIT: ${{ secrets.LIMIT }}
 
     steps:
       - name: Checkout repository
