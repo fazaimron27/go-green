@@ -21,6 +21,9 @@ jobs:
           git config --global user.email 'cincaumyself@gmail.com'
           git config --global --add safe.directory /__w/go-green/go-green
 
+      - name: Pull changes
+        run: git pull origin main
+
       - name: Loop and commit
         run: |
           for i in $(seq $LIMIT); do
